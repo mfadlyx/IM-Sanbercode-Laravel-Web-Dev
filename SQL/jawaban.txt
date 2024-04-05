@@ -1,0 +1,67 @@
+1. Membuat Database 
+CREATE DATABSE myshop;
+
+2. Membuat Table di Dalam Database
+--users
+CREATE TABLE users(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	name varchar(255) not null,
+	email varchar(255) not null,
+	password varchar(255) not null
+);
+
+--categories
+CREATE TABLE category(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	name varchar(255) not null
+);
+
+--items
+CREATE TABLE item(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	name varchar (255) not null,
+	description varchar(255) not null,
+	price integer not null,
+	stock integer not null,
+	category_id integer not null,
+	FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+
+3. Memasukkan data pada table
+--users
+INSERT INTO users (name, email, password) VALUES ('John Doe', 'john@doeo.com', 'john123);
+INSERT INTO users (name, email, password) VALUES ('Jane Doe', 'jane@doeo.com', 'jenita123);
+
+--categories
+INSERT INTO category(name) VALUES ('gadet');
+INSERT INTO category(name) VALUES ('cloth');
+INSERT INTO category(name) VALUES ('cloth');
+INSERT INTO category(name) VALUES ('men');
+INSERT INTO category(name) VALUES ('women');
+INSERT INTO category(name) VALUES ('branded');
+
+--items
+INSERT INTO item(name, description, price, stock, category_id) VALUES ('Sumsang b50, 'hape keren dari merek sumsang', 4000000, 100, 1);
+INSERT INTO item(name, description, price, stock, category_id) VALUES ('Uniklooh', 'baju keren dari brand ternama', 500000, 50, 2);
+INSERT INTO item(name, description, price, stock, category_id) VALUES ('IMHO Watch', 'jam tangan anak yang jujur banget', 2000000, 10, 1);
+
+4. Mengambil Data dari Databse
+a.) Mengambil data users
+SELECT id, name, email FROM users;
+
+b.) Mengambil data items
+SELECT * FROM item WHERE price > 1000000;
+SELECT * FROM item WHERE name like '%unikllo%';
+
+c.) Menampilkan data items join dengan kategori
+SELECT item.* , category.name as category FROM item INNER JOIN category ON item.category_id = category.id;
+
+5. Mengubah Data dari Database
+UPDATE item SET price=2500000 WHERE id=1;
+
+
+
+
+
+
