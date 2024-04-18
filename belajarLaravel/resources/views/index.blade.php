@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>SanberBook</title>
-</head>
-<body>
+@extends('layout.master')
+@section('judul')
+    Halaman Utama
+@endsection
+@section('content')
     <h1>SanberBook</h1>
     <h2>Social Media Developer Santai Berkualitas</h2>
     <p>Belajar dan Berbagi agar hidup ini semakin santai berkualitas</p>
@@ -21,5 +20,4 @@
         <li>Mendaftar di <a href="/form">Form Sign UP</a></li>
         <li>Selesai!</li>
     </ol>
-</body>
-</html>
+@endsection

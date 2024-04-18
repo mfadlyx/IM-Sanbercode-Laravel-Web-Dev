@@ -19,3 +19,11 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/form', [DashboardController::class, 'form']);
 
 Route::post('/welcome', [DashboardController::class, 'welcome']);
+
+Route::get('/data-table',  function(){
+    return view('data-table');
+});
+
+Route::get('/table', function(){
+    return view('table');
+});
