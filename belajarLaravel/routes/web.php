@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CastController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,29 @@ Route::get('/data-table',  function(){
 Route::get('/table', function(){
     return view('table');
 });
+
+//CRUD cast
+// Tambah Cast (C=> Create Data)
+
+//Untuk mengarah ke form tambah cast
+Route::get('/cast/create', [CastController::class, 'create']);
+
+//untuk memasukan input ke database
+Route::post('/cast', [CastController::class, 'store']);
+
+//Read Cast (R=> Read Data)
+//Untuk menampilkan semua kategory
+Route::get('/cast', [CastController::class, 'index']);
+
+//untuk menampilkan detail Bio berdasarkan id
+Route::get('/cast/{id}', [CastController::class, 'show']);
+
+//Update Cast  (U => Update Data)
+//Mengarahkan ke form edit cast berdasarkan id
+Route::get('/cast/{id}/edit', [CastController::class, 'edit']);
+//Fungsi update data berdasarkan id
+Route::put('/cast/{id}', [CastController::class, 'update']);
+
+//Delete Cast  (D => Delete Data)
+//Menghapus berdasarkan parameter id
+Route::delete('/cast/{id}', [CastController::class, 'destroy']);
